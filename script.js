@@ -8,3 +8,9 @@ const instructions = document.getElementById("instructions");
 
 let targetText = "Start typing to begin the test.";
 let typed = "";
+
+function render() {
+  targetEl.textContent = targetText;
+  typedEl.textContent = typed;
+}
+render();
