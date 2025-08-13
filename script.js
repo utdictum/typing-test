@@ -6,7 +6,7 @@ const wpmEl = document.getElementById("wpm-display");
 const accEl = document.getElementById("accuracy-display");
 const instructions = document.getElementById("instructions");
 
-let targetText = "Start typing to begin the test.";
+let targetText = "start senetence nla sdafjhdsklfs osfidhfous ";
 let typed = "";
 
 function render() {
@@ -47,3 +47,20 @@ function updateStats() {
 }
 
 updateStats();
+
+window.addEventListener("keydown", (e) => {
+  if (!startTime) startTime = Date.now();
+
+  if (e.key.length === 1) {
+    typed += e.key;
+  } else if (e.key === "Backspace") {
+    typed = typed.slice(0, -1);
+  } else if (e.key === "Enter") {
+    typed += "\n";
+  } else {
+    return;
+  }
+
+  render();
+  updateStats();
+})
